@@ -8,12 +8,19 @@ data.columns = ['raw']
 
 
 # %%
-data['num'] = data['raw'].str.replace('[^0-9]', '', regex=True).astype(int)
-print('Random sample of 10 entries', data.sample(10), '\n')
+# get column with numbers only
+data['num'] = data['raw'].str.replace('[^0-9]', '', regex=True)
+
+# save first and last digit (when only one digit, it gets save twice)
+data['res'] = data['num'].str[0] + data['num'].str[-1]
+
+print(data.sample(10))
 
 
 # %%
 # SOLUTION
-sum_num = data['num'].sum()
+sum_num = data['res'].astype(int).sum()
 
 print(f"The solution is {sum_num}!")
+
+
