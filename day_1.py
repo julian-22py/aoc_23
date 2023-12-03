@@ -57,19 +57,6 @@ number_mapping = {
 }
 
 # %%
-data_2[data_2.raw.str.contains('eightwo')]
-
-# %%
-# for key, values in number_mapping.items():
-#     col_name_temp = key + '_repl'
-#     print(col_name_temp)
-
-#     # 
-#     data_2[col_name_temp] = data_2['raw'].replace({key:values}, regex=True)
-
-# data_2.head()
-
-# %%
 # replace name of numbers with digit
 data_2['words_repl'] = data_2['raw'].replace(number_mapping, regex=True)
 
@@ -80,9 +67,6 @@ data_2['num'] = data_2['words_repl'].str.replace('[^0-9]', '', regex=True)
 data_2['res'] = data_2['num'].str[0] + data_2['num'].str[-1]
 
 data_2.sample(10)
-
-# %%
-data_2['words_repl'].sample(10)
 
 # %%
 # SOLUTION 2
