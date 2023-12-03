@@ -27,7 +27,7 @@ print(data.sample(10))
 # SOLUTION 1
 sum_num = data['res'].astype(int).sum()
 
-print(f"The solution is {sum_num}!")
+print(f"The solution of puzzle 1 is {sum_num}!")
 
 # %% [markdown]
 # ## Part 2
